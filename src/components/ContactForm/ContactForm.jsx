@@ -1,23 +1,36 @@
-import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
-export default function ContactForm({ onAddContact }) {
-  const handleSubmit = e => {
-    e.preventDefault();
+// export default function ContactForm({ onAddContact }) {
+//   const handleSubmit = e => {
+//     e.preventDefault();
 
-    const name = e.target.name.value;
-    const number = e.target.number.value;
+//     const name = e.target.name.value;
+//     const number = e.target.number.value;
 
-    const newContact = {
-      id: nanoid(),
-      name,
-      number,
-    };
+//     const newContact = {
+//       id: nanoid(),
+//       name,
+//       number,
+//     };
 
-    onAddContact(newContact);
+//     onAddContact(newContact);
 
-    e.target.reset();
+//     e.target.reset();
+//   };
+
+export function ContactForm ( {onSubmit} ) {
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    onSubmit({ name, number });
+
+    setName('');
+    setNumber('');
   };
 
   return (
