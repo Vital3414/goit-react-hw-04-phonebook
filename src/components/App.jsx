@@ -1,7 +1,7 @@
 // import React from 'react';
 import { useState, useEffect } from 'react';
 
-import {ContactForm} from './ContactForm/ContactForm';
+import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 import { nanoid } from 'nanoid';
@@ -46,7 +46,7 @@ export default function App() {
     <div className={css.page}>
       <div>
         <h1 className={css.title}>Phonebook</h1>
-        <ContactForm contacts={contacts} onAddContact={handleAddContact} />
+        <ContactForm contacts={contacts} onSubmit={handleAddContact} />
       </div>
       <div>
         <h2 className={css.title}>Contacts</h2>
